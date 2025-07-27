@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Sesli Ayetler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 30px;
+      background-color: #f9f9f9;
+      font-family: 'Scheherazade New', serif;
+      direction: rtl;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .ayat-container {
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      width: 90%;
+      max-width: 750px;
+      text-align: center;
+    }
+
+    .ayat-text {
+      font-size: 30px;
+      color: #222;
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    .source {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .controls input[type="range"] {
+      width: 200px;
+      height: 4px;
+    }
+
+    .label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    button {
+      padding: 6px 14px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #388e3c;
+    }
+
+    .highlight {
+      color: red;
+      transition: color 0.1s ease;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Ayetler -->
+<div class="ayat-container">
+  <div class="ayat-text">اَعُوذُ بِاللّٰهِ مِنَ الشَّيْطَانِ الرَّجِيمِ۞</div>
+  <div class="controls">
+    <audio id="audio-istiaze" src="istiaze.mp3"></audio>
+    <button onclick="playAudio('istiaze', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, 'istiaze')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيمِ۞</div>
+  <div class="controls">
+    <audio id="audio-besmele" src="besmele.mp3"></audio>
+    <button onclick="playAudio('besmele', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, 'besmele')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">
+    الٓمٓصٓ كِتٰبٌ اُنْزِلَ اِلَيْكَ فَلَا يَكُنْ فِى صَدْرِكَ حَرَجٌ مِنْهُ لِتُنْذِرَ بِهِ وَذِكْرٰى لِلْمُؤْمِنينَ
+  </div>
+  <div class="source">[A'râf; 7/1-2]</div>
+  <div class="controls">
+    <audio id="audio-1" src="1.mp3"></audio>
+    <button onclick="playAudio('1', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, '1')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">
+    وَنُنَزِّلُ مِنَ القُرْاٰنِ مَا هُوَ شِفَآءٌ وَرَحْمَةٌ لِلْمُؤْمِنينَ وَلَا يَزِيدُ الظّٰلِمِينَ اِلَّا خَسَارًا ۝
+  </div>
+  <div class="source">[İsrâ; 17/82]</div>
+  <div class="controls">
+    <audio id="audio-2" src="2.mp3"></audio>
+    <button onclick="playAudio('2', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, '2')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">
+    وَلَقَدْ يَسَّرْنَا الْقُرْاٰنَ لِلذِّكْرِ فَهَلْ مِنْ مُدَّكِرٍ۝ وَلَقَدْ جَآءَ اٰلَ فِرْعَوْنَ النُّذُرُ۝
+  </div>
+  <div class="source">[Kamer; 54/40-41]</div>
+  <div class="controls">
+    <audio id="audio-3" src="3.mp3"></audio>
+    <button onclick="playAudio('3', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, '3')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">
+    وَمَا يَنْطِقُ عَنِ الْهَوٰى ۝ اِنْ هُوَ اِلَّا وَحْىٌ يُوحٰى۝
+  </div>
+  <div class="source">[Necm; 53/3-4]</div>
+  <div class="controls">
+    <audio id="audio-4" src="4.mp3"></audio>
+    <button onclick="playAudio('4', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, '4')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">
+    وَيْلٌ لِكُلِّ هُمَزَةٍ لُمَزَةٍ۝
+  </div>
+  <div class="source">[Hūmeze; 104/1]</div>
+  <div class="controls">
+    <audio id="audio-5" src="5.mp3"></audio>
+    <button onclick="playAudio('5', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, '5')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">
+    قٓ وَالْقُرْاٰنِ الْمَجِيدِ۝
+  </div>
+  <div class="source">[Kaf; 50/1]</div>
+  <div class="controls">
+    <audio id="audio-6" src="6.mp3"></audio>
+    <button onclick="playAudio('6', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, '6')">
+  </div>
+</div>
+
+<div class="ayat-container">
+  <div class="ayat-text">
+    وَاِفْئِدَتُهُمْ هَوَآءُ ۝
+  </div>
+  <div class="source">[İbrahim; 14/43]</div>
+  <div class="controls">
+    <audio id="audio-7" src="7.mp3"></audio>
+    <button onclick="playAudio('7', this)">▶️ Dinle</button>
+    <label class="label">🔊 Hız Ayarı:</label>
+    <input type="range" min="0.5" max="2" step="0.1" value="1" onchange="changeSpeed(this, '7')">
+  </div>
+</div>
+
+<script>
+  function playAudio(id, button) {
+    const audio = document.getElementById("audio-" + id);
+    const ayatContainer = button.closest('.ayat-container');
+    const ayatText = ayatContainer.querySelector('.ayat-text');
+    
+    // Reset previous highlights
+    const words = ayatText.textContent.split(/\s+/);
+    ayatText.innerHTML = words.map(word => `<span>${word}</span>`).join(' ');
+    
+    audio.playbackRate = parseFloat(audio.dataset.speed) || 1;
+    audio.play();
+    
+    // Highlight words as audio plays
+    audio.onplay = function() {
+      const spans = ayatText.querySelectorAll('span');
+      let currentWord = 0;
+      
+      const highlightInterval = setInterval(() => {
+        if (currentWord > 0) {
+          spans[currentWord - 1].classList.remove('highlight');
+        }
+        
+        if (currentWord < spans.length) {
+          spans[currentWord].classList.add('highlight');
+          currentWord++;
+        } else {
+          clearInterval(highlightInterval);
+        }
+      }, 1400); // 300ms between words
+      
+      audio.onended = function() {
+        clearInterval(highlightInterval);
+        spans.forEach(span => span.classList.remove('highlight'));
+      };
+    };
+  }
+
+  function changeSpeed(rangeInput, id) {
+    const audio = document.getElementById("audio-" + id);
+    const speed = parseFloat(rangeInput.value);
+    audio.playbackRate = speed;
+    audio.dataset.speed = speed;
+  }
+</script>
+
+</body>
+</html>
